@@ -1,9 +1,10 @@
 const mineflayer = require('mineflayer');
 
 const botOptions = {
-  host: 'minigames.mcsh.io', // Using the domain name
+  host: 'minigames.mcsh.io', 
   username: 'Server_Keeper', 
-  auth: 'offline'            // No port line needed here
+  auth: 'offline',
+  version: '1.21.11' // <-- Add this exact line here
 };
 
 function createBot() {
