@@ -1,10 +1,9 @@
 const mineflayer = require('mineflayer');
 
 const botOptions = {
-  host: '15.235.217.54', // <-- Put your Paper server IP here
-  port: 12930,                  // <-- Change if your server uses a custom port
-  username: 'ikeepthebebion',    // <-- The name your bot will use on the server
-  auth: 'offline'               // Tells the bot it is a cracked server
+  host: 'minigames.mcsh.io', // Using the domain name
+  username: 'Server_Keeper', 
+  auth: 'offline'            // No port line needed here
 };
 
 function createBot() {
