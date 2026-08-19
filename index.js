@@ -1,10 +1,21 @@
 const mineflayer = require('mineflayer');
+const http = require('http'); // <-- Added: Allows the bot to act like a website
 
+// 1. Tiny web server so Render and UptimeRobot stay happy
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot website is fully online!');
+});
+server.listen(process.env.PORT || 4000, () => {
+  console.log('Web server is listening for pings!');
+});
+
+// 2. Your Minecraft Bot configuration
 const botOptions = {
   host: 'minigames.mcsh.io', 
-  username: 'ikeepthebebion', 
+  username: 'ikeepbebion', 
   auth: 'offline',
-  version: '1.21.11' // <-- Add this exact line here
+  version: '1.21.11'
 };
 
 function createBot() {
@@ -12,7 +23,7 @@ function createBot() {
 
   bot.on('spawn', () => {
     console.log('Bot has joined the server!');
-
+    
     // Jump and look around every 15 seconds to stay active
     setInterval(() => {
       bot.setControlState('jump', true);
@@ -21,7 +32,6 @@ function createBot() {
     }, 15000);
   });
 
-  // Automatically reconnect if the server restarts or kicks the bot
   bot.on('end', () => {
     console.log('Disconnected. Reconnecting in 10 seconds...');
     setTimeout(createBot, 10000);
