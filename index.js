@@ -12,7 +12,7 @@ server.listen(process.env.PORT || 4000, () => {
 
 // 2. Your Minecraft Bot configuration
 const botOptions = {
-  host: 'minigames.mcsh.io', 
+  host: '8pythagorasmp6.mcsh.io', 
   username: 'mrwonderland', 
   auth: 'offline',
   version: '1.21.11'
